@@ -1,0 +1,12 @@
+# Example config
+Interval: 40 #Scrape intreval
+Subgraphs:
+  - test:
+    #Name of subgraph is used in metric tags
+    Name: "matic"
+    #Subgraph url more info here https://thegraph.com/docs/hostedservice/deploy-subgraph-hosted#checking-subgraph-health
+    URL: "https://link-to-subgraph.example/"
+  - test2:
+    Name: "ksajfk"
+    URL: "lajdsfl"
+

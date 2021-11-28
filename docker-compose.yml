@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  subgraph_monitoring:
+    image: subgraph_monitoring:latest
+    restart: always
+    environment:
+      CONFIG: '/config.yml'
+    volumes:
+      - './pkg/config.yml:/config.yml'
+    ports:
+      - '127.0.0.1:2112:2112'
+
+
