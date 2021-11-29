@@ -19,7 +19,7 @@ subgraphs_monitoring_subgraph_health       - Subgraph health: 0 for failed, 1 fo
 subgraphs_monitoring_subgraph_synced       - Subgraph synced: 0 for unsynced, 1 for synced
 ```
 
-Prometheus alerts example located [here](./alerts-example.yml)
+Prometheus alerts example is located [here](./alerts-example.yml)
 
 
 # Guide for creating subgrphs for connext
@@ -30,7 +30,7 @@ Also you can save a lot of disk space by disable block_hash for graph-node:
 
 `GRAPH_ETHEREUM_CLEANUP_BLOCKS: 'true'`
 
-It can lead to increase number of total rpc requests.
+It can lead to increasing number of total rpc requests.
 
 1. Install all needed packages:
 `
@@ -43,13 +43,13 @@ npm install --global yarn
 
 `git clone https://github.com/connext/nxtp.git`
 
-
 3. Change provider url in docker-compose :
 
-`cd ~/graph-node/docker
+```
+cd ~/graph-node/docker
 -      ethereum: 'mainnet:http://host.docker.internal:8545'
 +      ethereum: 'network(for example-matic):your_rpc_node_url'
-`
+```
 
 4. Run `./setup.sh`
 5. Run docker-compose
@@ -70,7 +70,7 @@ Be sure that you are using graph version 0.21.1 (Because current subgraphs use a
 `yarn deploy v1-runtime v1-runtime matic`
 
 This will compile subgraph for matic(this shoud be in config ./configs/mainnet.json and in graph docker-compose you should have provider for that network)
-c
+
 8. Create subgraph and deploy it(make sure that graph docker-compose is up and running)
 
 `
