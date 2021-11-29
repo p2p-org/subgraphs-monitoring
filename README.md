@@ -72,7 +72,7 @@ It can lead to increasing number of total rpc requests.
   cd nxtp/packages/subgraph
   ```
 
-Be sure that you are using graph version 0.21.1 (Because current subgraphs use api version 0.0.4)
+  Be sure that you are using graph version 0.21.1 (Because current subgraphs use api version 0.0.4)
 
 - Compile subgraph(config are stored in ./configs directory)
 
