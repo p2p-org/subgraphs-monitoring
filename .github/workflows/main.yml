@@ -12,14 +12,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: snyk/snyk:golang
+  security-check:
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Validate go modules
         run: |
           cd pkg
+          npm install snyk@latest -g
           go mod graph
           snyk test
