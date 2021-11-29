@@ -2,7 +2,7 @@
 Interval: 40 #Scrape intreval
 Subgraphs:
   - test:
-    #Name of subgraph is used in metric tags
+    #Name of subgraph must be the same as deployed subgraph name because it is used in graphql request
     Name: "matic"
     #Subgraph url more info here https://thegraph.com/docs/hostedservice/deploy-subgraph-hosted#checking-subgraph-health
     URL: "https://link-to-subgraph.example/"

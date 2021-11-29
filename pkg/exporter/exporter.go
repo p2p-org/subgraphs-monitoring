@@ -21,9 +21,9 @@ func RecordMetricsTotalSubgraphsNumber(subgraphsNumber int) {
 func RecordMetricsSubgraph(subgraphName string, url string) error {
 	client := graphql.NewClient(url)
 	//https://github.com/graphprotocol/graph-node/blob/master/server/index-node/src/schema.graphql
-	req := graphql.NewRequest(`
+	query := fmt.Sprintf(`
 query MyQuery {
-  indexingStatusForCurrentVersion(subgraphName: "connext/nxtp-matic") {
+  indexingStatusForCurrentVersion(subgraphName: "%s") {
     chains {
       network
       chainHeadBlock {
@@ -38,7 +38,8 @@ query MyQuery {
     synced
   }
 }
-`)
+`, subgraphName)
+	req := graphql.NewRequest(query)
 	ctx := context.Background()
 
 	var respData ResponseSubgraphStruct
