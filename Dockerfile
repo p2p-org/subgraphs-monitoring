@@ -3,7 +3,6 @@ FROM golang:1.15-alpine AS build
 COPY /pkg/ /src/
 RUN apk add --no-cache git
 WORKDIR /src/
-RUN ls -lah
 RUN CGO_ENABLED=0 go build -o /bin/subgraph_monitoring
 
 FROM ubuntu:latest
