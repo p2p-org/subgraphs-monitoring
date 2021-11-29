@@ -45,7 +45,7 @@ func main() {
 				err := exporter.RecordMetricsSubgraph(subgraph.Name, subgraph.URL)
 				if err != nil {
 					Warning.Printf("Unable to get subgraph metrics, %v", err)
-					exporter.RecordError(configuration.Subgraphs[0].Name)
+					exporter.RecordError(subgraph.Name)
 				} else {
 					Info.Printf("Update metrics for subgraph")
 				}
