@@ -6,7 +6,7 @@ Script sends request to `8020(by default)` graph-node port.
 
 To set config name use env variable `CONFIG`
 
-Example config located [here](pkg/config.yml)
+Example config is located [here](pkg/config.yml)
 
 List of available metrics:
 
