@@ -38,59 +38,59 @@ It can lead to increasing number of total rpc requests.
 ## How to deploy connext subgraph
 
 - Install all needed packages:
-```
-apt-get update
-apt-get install -y docker.io jq docker-compose npm
-npm install --global yarn
-```
+  ```
+  apt-get update
+  apt-get install -y docker.io jq docker-compose npm
+  npm install --global yarn
+  ```
 
 - Copy graph repo:
 
-```
-git clone https://github.com/connext/nxtp.git
-```
+  ```
+  git clone https://github.com/connext/nxtp.git
+  ```
 
 - Change provider url in docker-compose :
 
-```
-cd ~/graph-node/docker
--      ethereum: 'mainnet:http://host.docker.internal:8545'
-+      ethereum: 'network(for example-matic):your_rpc_node_url'
-```
+  ```
+  cd ~/graph-node/docker
+  -      ethereum: 'mainnet:http://host.docker.internal:8545'
+  +      ethereum: 'network(for example-matic):your_rpc_node_url'
+  ```
 
 - Run `./setup.sh`
 - Run docker-compose
 
-```
-docker-compose up -d
-```
+  ```
+  docker-compose up -d
+  ```
 
 - Clone connext repo
 
-```
-git clone https://github.com/connext/nxtp.git
-cd nxtp/packages/subgraph
-```
+  ```
+  git clone https://github.com/connext/nxtp.git
+  cd nxtp/packages/subgraph
+  ```
 
 Be sure that you are using graph version 0.21.1 (Because current subgraphs use api version 0.0.4)
 
 - Compile subgraph(config are stored in ./configs directory)
 
-```
-yarn deploy v1-runtime v1-runtime matic
-```
+  ```
+  yarn deploy v1-runtime v1-runtime matic
+  ```
 
-This will compile subgraph for matic(this shoud be in config ./configs/mainnet.json and in graph docker-compose you should have provider for that network)
+  This will compile subgraph for matic(this shoud be in config ./configs/mainnet.json and in graph docker-compose you should have provider for that network)
 
 - Create subgraph and deploy it(make sure that graph docker-compose is up and running)
 
-```
-graph create --node http://localhost:8020/ connext/nxtp-your-subgraph-name
-graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 connext/your-subgraph-name
-```
+  ```
+  graph create --node http://localhost:8020/ connext/nxtp-your-subgraph-name
+  graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 connext/your-subgraph-name
+  ```
 
 - Check subgraph
 
-```
-curl http://127.0.0.1:8000/subgraphs/name/connext/nxtp-your-subgraph-name
-```
+  ```
+  curl http://127.0.0.1:8000/subgraphs/name/connext/nxtp-your-subgraph-name
+  ```
