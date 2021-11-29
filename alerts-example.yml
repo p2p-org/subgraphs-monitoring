@@ -1,0 +1,50 @@
+groups:
+- name: SubgraphMonitoring
+  rules:
+  # Alert for any instance that is unreachable for >5 minutes.
+  - alert: Subgraph out of sync
+    expr: subgraphs_monitoring_subgraph_synced == 0
+    for: 10m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Subgraph {{ $labels.subgraph }} out of sync"
+      description: "{{ $labels.subgraphs }} is out of sync for 10 minutes"
+
+  - alert: RPC node stopped syncing
+    expr: rate(subgraphs_monitoring_rpc_chain_head{}[5m]) == 0
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Rpc node for subgraph {{ $labels.subgraph }} is not syncing"
+      description: "Rpc node for subgraph {{ $labels.subgraphs }} is not syncing for 5 minute"
+
+  - alert: A lot errors while getting metrics for subgraph
+    expr: subgraphs_monitoring_subgraph_error_count >= 20
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Errors for getting metrics for subgraph {{ $labels.subgraphs }}"
+      description: "Errors for getting metrics for subgraph {{ $labels.subgraphs }}"
+
+  - alert: Failed subgraphs
+    expr: subgraphs_monitoring_subgraph_health == 0
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Failed subgraph {{ $labels.subgraphs }}"
+      description: "Failed subgraph {{ $labels.subgraphs }}"
+
+  - alert: Unhealty subgraphs
+    expr: subgraphs_monitoring_subgraph_health == 1
+    for: 5m
+    labels:
+      severity: warining
+    annotations:
+      summary: "Unhealty subgraphs {{ $labels.subgraphs }}"
+      description: "Unhealty subgraphs {{ $labels.subgraphs }}"
+
+
