@@ -22,7 +22,7 @@ subgraphs_monitoring_subgraph_synced       - Subgraph synced: 0 for unsynced, 1 
 Prometheus alerts example is located [here](./alerts-example.yml)
 
 
-# Guide for deploying connext subgrphs
+# Guide for deploying connext subgraphs
 
 ## Before you start 
 If you are using hetzner, gcp, aws you need to use server profile for you ipfs node. More info [here](https://github.com/ipfs/go-ipfs/issues/4343)
