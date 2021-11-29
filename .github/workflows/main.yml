@@ -1,0 +1,25 @@
+# Security check for the go module file
+name: Security checks
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: snyk/snyk:golang
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Validate go modules
+        run: |
+          cd pkg
+          go mod graph
+          snyk test
