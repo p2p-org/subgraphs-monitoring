@@ -25,7 +25,7 @@ Prometheus alerts example is located [here](./alerts-example.yml)
 # Guide for deploying connext subgraphs
 
 ## Before you start 
-If you are using hetzner, gcp, aws you need to use server profile for you ipfs node. More info [here](https://github.com/ipfs/go-ipfs/issues/4343)
+:warning: If you are using hetzner, gcp, aws you need to use server profile for you ipfs node. More info [here](https://github.com/ipfs/go-ipfs/issues/4343)
 
 Also you can save a lot of disk space by disable block_hash for graph-node:
 
