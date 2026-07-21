@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/machinebox/graphql v0.2.2
-	github.com/prometheus/client_golang v1.11.0
+	github.com/prometheus/client_golang v1.11.1
 	github.com/spf13/viper v1.9.0
 )
 
